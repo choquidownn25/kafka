@@ -12,10 +12,10 @@ import org.springframework.kafka.core.*;
 
 import java.util.HashMap;
 import java.util.Map;
-@Configuration
+
 public class KafkaConfiguration {
 
-    @Bean
+
     private Map<String, Object> producerProps() {
         Map<String, Object> props=new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
@@ -25,14 +25,14 @@ public class KafkaConfiguration {
     }
 
 
-    @Bean
+
     public KafkaTemplate<String, String> producerFactory() {
         DefaultKafkaProducerFactory<String, String> producerFactory= new DefaultKafkaProducerFactory<String, String>(producerProps());
         KafkaTemplate<String, String> template=new KafkaTemplate<>(producerFactory);
         return template;
     }
 
-    @Bean
+
     public Map<String, Object> consumerProps() {
         Map<String, Object>props=new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
@@ -45,11 +45,11 @@ public class KafkaConfiguration {
                 StringDeserializer.class);
         return props;
     }
-    @Bean
+
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerProps());
     }
-    @Bean
+
     public ConcurrentKafkaListenerContainerFactory<String, String> listenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> listenerContainerFactory = new ConcurrentKafkaListenerContainerFactory<>();
         listenerContainerFactory.setConsumerFactory(consumerFactory());
