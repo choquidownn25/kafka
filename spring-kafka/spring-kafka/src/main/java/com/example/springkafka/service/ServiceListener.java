@@ -2,6 +2,7 @@ package com.example.springkafka.service;
 
 
 import com.example.springkafka.request.PropertyListener;
+import com.example.springkafka.utils.StringResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -27,6 +28,7 @@ public class ServiceListener {
                         message.getPayload().getAfter().getProperty_value());
             } else{
                 // do nothing
+                log.info(StringResponse.MESSAGE_KAFKA.getName(), message.toString());
             }
             log.info(message.toString());
         } catch (Exception e) {

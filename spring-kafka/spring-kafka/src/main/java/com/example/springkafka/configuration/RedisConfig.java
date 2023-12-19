@@ -1,5 +1,6 @@
 package com.example.springkafka.configuration;
 
+import com.example.springkafka.utils.StringResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
@@ -17,11 +18,11 @@ import org.springframework.data.redis.serializer.*;
 @Configuration
 @EnableCaching
 public class RedisConfig {
-    private static final String API_PREFIX = "debezium";
-    private static final String SEPARATOR = ":";
+    private static final String API_PREFIX = StringResponse.API_PREFIXS.getName();
+    private static final String SEPARATOR = StringResponse.SEPARATORS.getName();;
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
-        return new LettuceConnectionFactory("localhost", 6379);
+        return new LettuceConnectionFactory(StringResponse.LOCALHOST_LISTENER.getName(), 6379);
     }
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
