@@ -19,7 +19,7 @@ Servicio para envio y recepcion
 
 #  Linux
 - $ bin\zookeeper-server-start.sh config\zookeeper.properties
-$ bin\kafka-server-start.sh config\server.properties
+- $ bin\kafka-server-start.sh config\server.properties
 
 #  Windows
 - bin\windows\zookeeper-server-start.sh config\zookeeper.properties
