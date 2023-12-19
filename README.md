@@ -18,12 +18,12 @@ Servicio para envio y recepcion
 - Lombok
 
 #  Linux
-$ bin\zookeeper-server-start.sh config\zookeeper.properties
+- $ bin\zookeeper-server-start.sh config\zookeeper.properties
 $ bin\kafka-server-start.sh config\server.properties
 
-# Windows
- bin\windows\zookeeper-server-start.sh config\zookeeper.properties
- bin\windows\kafka-server-start.sh config\server.properties
+#  Windows
+- bin\windows\zookeeper-server-start.sh config\zookeeper.properties
+- bin\windows\kafka-server-start.sh config\server.properties
 
 
 # Development Tools & Environment
