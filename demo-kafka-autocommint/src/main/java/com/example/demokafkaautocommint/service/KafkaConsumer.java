@@ -25,8 +25,6 @@ public class KafkaConsumer {
         Properties props=new Properties();
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
         props.setProperty(ConsumerConfig.GROUP_ID_CONFIG,"devs4j-group"); //Multiples clientes
-        props.setProperty("enable.auto.commit","true");
-        props.setProperty("auto.commit.interval.ms","1000");
         props.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
                 "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
