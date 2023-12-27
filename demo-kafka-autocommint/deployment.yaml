@@ -1,0 +1,28 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-kafka-autocommit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-kafka-autocommit
+  template:
+    metadata:
+      labels:
+        app: demo-kafka-autocommit
+    spec:
+      containers:
+        - name: demo-kafka-autocommitt
+          image: tu-repositorio/tu-imagen:1.0.1
+          ports:
+            - containerPort: 9096
+          env:
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASSWORD
+              value: ""
+            - name: MYSQL_DATABASE
+              value: propertyfkadatabase
+---

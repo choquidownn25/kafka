@@ -1,0 +1,13 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-kafka-autocommit
+spec:
+  selector:
+    app: demo-kafka-autocommit
+  ports:
+    - protocol: TCP
+      port: 90
+      targetPort: 9096
+  type: LoadBalancer
