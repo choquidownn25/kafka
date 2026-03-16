@@ -24,6 +24,12 @@ public class KafkaProducerController {
     public void produceMessage(@RequestBody String message) {
         kafkaProducer.sendMessage(message);
     }
+    @PostMapping("/produces")
+    public ResponseEntity<String> produceMessageWithKey(@RequestBody PropertyRequest propertyRequest) {
+        kafkaProducer.sendMessage(propertyRequest.getPropertyKey() +"-"+ propertyRequest.getPropertyValue());
+        //return new ResponseEntity<String>(HttpStatus.OK);
+        return ResponseEntity.ok().body(propertyRequest.getPropertyKey() +"-"+ propertyRequest.getPropertyValue());
+    }
     @PostMapping("/add")
     public ResponseEntity<String> createProperty(@RequestBody PropertyRequest propertyRequest){
         kafkaProducer.sendMessage(propertyRequest.getPropertyKey() +"-"+ propertyRequest.getPropertyValue()); ;

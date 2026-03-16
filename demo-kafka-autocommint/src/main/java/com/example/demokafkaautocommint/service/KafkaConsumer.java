@@ -17,8 +17,8 @@ import java.util.Properties;
 @Service
 public class KafkaConsumer {
     public static final Logger log= LoggerFactory.getLogger(KafkaConsumer.class);
-    @Value("${spring.kafka.bootstrap-servers}")
-    private String servers; // Value = 'SpringAppCluste
+    //@Value("${spring.kafka.bootstrap-servers}")
+    //private String servers; // Value = 'SpringAppCluste
     @KafkaListener(topics = "devs4j-topic", groupId = "group_id", containerFactory = "kafkaListenerContainerFactory")
     public void consume(ConsumerRecord<Integer, String> record) {
 
